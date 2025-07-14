@@ -14,11 +14,12 @@
     }"
 >
     <header class="flex items-center justify-between w-(--container-width) mt-4 mx-auto">
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-12">
             <a href="/">
-                <img src="{{ asset("storage/".$logo) }}" alt="радартех" width="75" height="50" loading="lazy" decoding="async" fetchpriority="high"/>
+                <img src="{{ asset("storage/".$logo) }}" alt="радартех" width="100" height="75" loading="lazy" decoding="async" fetchpriority="high"/>
             </a>
-            <nav>
+            <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+                <meta itemprop="name" content="Главное меню"/>
                 <ul class="flex gap-x-4">
                     <x-menu-item>Item 1</x-menu-item>
                     <x-menu-item>Item 2</x-menu-item>
@@ -27,12 +28,12 @@
                 </ul>
             </nav>
         </div>
-        <div class="flex items-center gap-4">
-            <a class="inline-flex items-center font-main text-xl gap-x-2 hover:underline" href="tel:{{ $phone_number_formated }}" title="Позвонить">
-                <svg class="size-[16px]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+        <div class="flex items-center gap-12">
+            <a class="inline-flex items-center font-main text-2xl gap-x-2 hover:underline" href="tel:{{ $phone_number_formated }}" title="Позвонить">
+                <span class="font-icon"></span>
                 {{ $phone_number }}
             </a>
-            <x-button x-data id="contact" class="inline-flex items-center gap-2 px-4 py-2 text-xl" @click="contactIsOpen = true" popup-target="contact-form">
+            <x-button x-data id="contact" class="inline-flex items-center gap-2 px-4 py-2 text-2xl" @click="contactIsOpen = true" popup-target="contact-form">
                 Связаться
             </x-button>
         </div>
@@ -57,7 +58,7 @@
             <x-section.highlight>Точность, Надежность, Интеграция.</x-section.highlight>
         </x-section.header>
         <img class="about-cover rounded-xl mt-6 w-full h-[500px] object-cover align-middle bg-gray-300" src="https://www.womenintech.co.uk/wp-content/uploads/2021/11/Tech-skills-2022-1-768x432.png.webp" loading="lazy" decoding="async" fetchpriority="low" draggable="false" alt="">
-        <p class="text-2xl text-balance text-main/80 font-main font-medium mt-4">Разрабатываем и производим ключевой элемент радиолокационных систем, обеспечивающий их максимальную эффективность в любых условиях.</p>
+        <x-section.description class="mt-4">Разрабатываем и производим ключевой элемент радиолокационных систем, обеспечивающий их максимальную эффективность в любых условиях.</x-section.description>
         <div class="relative grid grid-cols-3 gap-10 mt-12">
             <x-about.points
                 title="Этапы"
@@ -117,22 +118,32 @@
             <x-section.highlight>Наши направления</x-section.highlight>
         </x-section.header>
         <x-directions>
-            <x-directions.item
-                title="Test item 1"
-                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque consequatur expedita inventore laborum quos."
-                image="https://cdn-icons-png.flaticon.com/512/164/164401.png"
-            />
-            <x-directions.item
-                title="Test item 1"
-                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque consequatur expedita inventore laborum quos."
-                image="https://cdn-icons-png.flaticon.com/512/164/164401.png"
-            />
-            <x-directions.item
-                title="Test item 1"
-                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque consequatur expedita inventore laborum quos."
-                image="https://cdn-icons-png.flaticon.com/512/164/164401.png"
-            />
+            @foreach($directions as $direction)
+                <x-directions.item
+                    :title="$direction->title"
+                    :description="$direction->description"
+                    :image="asset('storage/'.$direction->image)"
+                />
+            @endforeach
         </x-directions>
+    </x-section>
+    <x-section>
+        <x-section.header><x-section.highlight>Принцип работы</x-section.highlight></x-section.header>
+        <x-section.description class="mt-12">
+            <p class="mb-2">Lorem ipsum <b>dolor sit amet,</b> consectetur adipisicing elit. A adipisci aperiam architecto beatae consequatur consequuntur corporis, distinctio dolores dolorum earum enim eos fugiat harum in laborum maiores minima minus mollitia necessitatibus nihil odit officiis optio porro provident repellendus repudiandae rerum, sunt suscipit tempora tenetur totam vel voluptate, voluptatem?</p>
+            <p>Atque, eius enim esse ex ipsam nobis quam rem suscipit veritatis voluptate. Beatae blanditiis consequuntur cupiditate distinctio, excepturi fugiat itaque minima sapiente. Consectetur dicta iure perferendis? Accusamus corporis dolor, doloribus esse, fugit iusto odit officia omnis qui ratione repellendus reprehenderit sint voluptas! Debitis deserunt obcaecati quos sint! Amet aperiam beatae earum eius et eum fuga ipsam ipsum, magni officiis possimus quis quos repellat reprehenderit rerum, soluta totam voluptatum. Adipisci ea error et eveniet excepturi expedita, facere, inventore molestias neque nesciunt nostrum numquam optio pariatur perspiciatis possimus quaerat quas quidem quo reprehenderit saepe sed ullam vitae! Amet dolore ea excepturi facilis ipsam recusandae, reprehenderit velit! Ab at dolores, earum labore magni odio placeat porro provident quam, quas qui quibusdam repellendus unde vero voluptatum? Consequatur cupiditate deserunt distinctio, dolor ea, fugiat, hic in laboriosam libero perspiciatis qui repudiandae rerum temporibus. Culpa expedita maxime necessitatibus suscipit! Labore laboriosam modi pariatur. Cum deleniti odio reiciendis sunt!</p>
+        </x-section.description>
+    </x-section>
+    <x-section>
+        <x-section.header><x-section.highlight>О нас</x-section.highlight></x-section.header>
+        <x-company>
+            <x-slot:buttons>
+                <x-company.button :is-active="true">Test 1</x-company.button>
+                <x-company.button>Test 2</x-company.button>
+                <x-company.button>Test 3</x-company.button>
+            </x-slot:buttons>
+            <x-slot:items></x-slot:items>
+        </x-company>
     </x-section>
     <x-popup name="contact-form"
              @close="contactIsOpen = false"

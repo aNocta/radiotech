@@ -11,6 +11,7 @@ Route::get('/', function () {
     }
     $slides = Slide::all();
     $services = \App\Models\Service::all();
+    $directions = \App\Models\Direction::all();
     return view('main', [
         "logo" => $settings->logo,
         "phone_number" => $phone_number,
@@ -18,6 +19,7 @@ Route::get('/', function () {
         "whatsapp" => $settings->whatsapp,
         "slides" => $slides,
         "services" => $services,
+        "directions" => $directions,
     ]);
 })->name('home');
 

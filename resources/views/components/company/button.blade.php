@@ -1,0 +1,1 @@
+<button {{ $attributes }} class="bg-main/10 {{ $isActive ? "border-4 border-main" : "" }} py-4 rounded-xl text-2xl text-main font-main font-medium cursor-pointer duration-300 hover:bg-main hover:text-white">{{ $slot }}</button>
