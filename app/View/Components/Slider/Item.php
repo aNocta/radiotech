@@ -14,6 +14,7 @@ class Item extends Component
     public function __construct(
         public string $name,
         public string $shortDescription,
+        public string $description,
         public string $image,
         public array $advantages,
     )

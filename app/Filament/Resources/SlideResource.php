@@ -7,7 +7,7 @@ use App\Filament\Resources\SlideResource\RelationManagers;
 use App\Models\Slide;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -34,7 +34,7 @@ class SlideResource extends Resource
                 FileUpload::make('image')->image()->imageEditor(),
                 TextInput::make('name'),
                 Textarea::make('short_description'),
-                MarkdownEditor::make('description'),
+                RichEditor::make('description'),
                 Repeater::make('advantages')->schema([
                     TextInput::make('advantage'),
                 ])

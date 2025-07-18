@@ -87,3 +87,50 @@
 .swiper-slide{
     display: flex;
 }
+
+.section-title{
+    background: linear-gradient(45deg, var(--color-main), color-mix(in srgb, var(--color-main) 60%, white 40%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.description :is(p,ul,ol){
+    margin-bottom: 15px;
+}
+.description p:has(+ :is(ul,ol)){
+    margin-bottom: 5px;
+}
+.description :is(h2,h3){
+    font-weight: 700;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+.description a{
+    text-decoration: underline;
+}
+.description a:hover{
+    color: var(--color-main);
+}
+.description h2{
+    font-size: var(--text-2xl);
+}
+.description h3{
+    font-size: var(--text-xl);
+}
+.description :is(ul, ol){
+    padding-left: 20px;
+}
+.description ul li{
+    list-style: circle;
+}
+.description ol li{
+    list-style: numeric;
+}
+
+.price-list-desc{
+    rotate: 180deg;
+}
+.hidden{
+    display: none;
+}

@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import {animate, inView, stagger, scroll, hover} from "motion"
+import {animate, stagger, scroll, hover} from "motion"
 import {Navigation, Autoplay} from "swiper/modules";
 import Lenis from "lenis";
 import u from 'umbrellajs';
@@ -38,24 +38,6 @@ function currentSlideAnimation(){
     }
 }
 currentSlideAnimation();
-
-const advantageLists = u(".about-list li");
-const advantageListTitles = u(".about-list h3");
-const aboutCover = u(".about-cover");
-if(advantageLists.length > 0){
-    advantageLists.each((advantage) => {
-        advantage.style.opacity = "0";
-    });
-    inView(aboutCover.nodes, (element) => {
-        animate(aboutCover.nodes, {opacity: [0, 1], translateY: [-200, 0]}, { duration: 1 }).play();
-    });
-    inView(advantageLists.nodes, () => {
-        animate(advantageListTitles.nodes, {scaleX: [0, 1], opacity: [0, 1]}, { delay: stagger(.2) }).then(() => {
-            animate(advantageLists.nodes, {opacity: [0, 1]}, { delay: stagger(.1) });
-        });
-    }, { amount: 1 })
-}
-
 swiper.on("slideChange", currentSlideAnimation);
 
 

@@ -22,6 +22,9 @@ class SiteSettings extends SettingsPage
                 \Filament\Forms\Components\TextInput::make("phone_number")->mask("+7 (999) 999-99-99")->placeholder("+7 (___) ___-__-__")->label("Номер телефона"),
                 \Filament\Forms\Components\TextInput::make("whatsapp")->label("Whatsapp"),
                 \Filament\Forms\Components\TextInput::make("email")->label("Email"),
+                \Filament\Forms\Components\FileUpload::make("footer_logo")->image()->imageEditor()->label("Логотип в подпале")->columnSpan(2),
+                \Filament\Forms\Components\TextInput::make("footer_email")->label("Email внизу"),
+                \Filament\Forms\Components\TextInput::make("address")->label("Адрес"),
             ]);
     }
 }
