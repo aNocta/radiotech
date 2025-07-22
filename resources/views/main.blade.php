@@ -19,9 +19,9 @@
     <header class="flex items-center justify-between w-(--container-width) mt-4 mx-auto">
         <div class="flex items-center gap-12">
             <a href="/">
-                <img src="{{ asset("storage/".$logo) }}" class="lg:w-20 xl:w-25" alt="радартех" width="100" height="75" loading="lazy" decoding="async" fetchpriority="high"/>
+                <img src="{{ asset("storage/".$logo) }}" class="w-15 lg:w-20 xl:w-25" alt="радартех" width="100" height="75" loading="lazy" decoding="async" fetchpriority="high"/>
             </a>
-            <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+            <nav class="hidden lg:block" itemscope itemtype="https://schema.org/SiteNavigationElement">
                 <meta itemprop="name" content="Главное меню"/>
                 <ul class="flex gap-x-4">
                     <x-menu-item>Item 1</x-menu-item>
@@ -31,7 +31,7 @@
                 </ul>
             </nav>
         </div>
-        <div class="flex items-center gap-12">
+        <div class="flex flex-col lg:flex-row items-end lg:items-center gap-2 lg:gap-12 mt-2 lg:mt-0">
             <a class="inline-flex items-center font-main text-main lg:text-xl xl:text-2xl gap-x-2 hover:underline" href="tel:{{ $phone_number_formated }}" title="Позвонить">
                 <span class="font-icon"></span>
                 {{ $phone_number }}
